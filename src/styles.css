@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+/*@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';*/
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+/*@import '~@angular/material/core/theming/prebuilt/pink-bluegrey.css';*/
+/*@import '~@angular/material/core/theming/prebuilt/purple-green.css';*/
+
+body {
+  margin: 0;
+}
