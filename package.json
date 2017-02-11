@@ -37,6 +37,7 @@
     "@types/crypto-js": "^3.1.33",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
+    "angular2-template-loader": "^0.6.2",
     "codelyzer": "~2.0.0-beta.1",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
@@ -48,6 +49,7 @@
     "protractor": "~5.1.0",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
-    "typescript": "^2.1.6"
+    "typescript": "^2.1.6",
+    "wallaby-webpack": "^0.0.33"
   }
 }
