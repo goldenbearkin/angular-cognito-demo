@@ -94,6 +94,10 @@
   version "4.0.0-beta.7"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.0.0-beta.7.tgz#c42643b186730e52ab709102a28dac8c85af8f11"
 
+"@angular/material@^2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.1.tgz#106a0b79fb2b48a7606a0682c4e5d0bbe03364a0"
+
 "@angular/platform-browser-dynamic@4.0.0-beta.7":
   version "4.0.0-beta.7"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-4.0.0-beta.7.tgz#fe640ab6c0fb23c6549e7a7a78ca78d3f96b5bd4"
