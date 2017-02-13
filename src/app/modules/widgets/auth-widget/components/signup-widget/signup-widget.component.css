@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.error-box {
+  border: 1px solid #bd081c;
+  background-color: #ffebe9;
+  padding: 10px;
+  overflow: hidden;
+}
+
+

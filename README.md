@@ -1,27 +1,33 @@
-# AngularCognitoDemo
+# Angular Cognito Demo
+An showcase of Angular web app utilizing Amazon Cognito.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
+## Todos (priority order)
+* intergrate with Apollo client
+* migrate to ngrx v3 (not yet released)
+* write unit tests for widget components
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Known issues
+1. The callback type of cognitoUser.authenticateUser hasn't marked the newPasswordRequired, mfaRequired, customChallenge
+as optional. Now just declare as no-op. Need to remove after #238 get fixed.
+``` typescript
+export class UserLoginService {
 
-## Code scaffolding
+  constructor(private cognitoUtilityService: CognitoUtilityService) { }
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+  private _authCognito$(alias: string, password: string): Observable<{ idToken: string }> {
+    ...
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    return Observable.create((observer: Observer<{ idToken: string }>) => {
+      cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: session => {
+          observer.next({ idToken: session.getIdToken().getJwtToken() });
+          observer.complete();
+        },
+        onFailure: error => observer.error(error),
+        newPasswordRequired: () => {}, // no-op
+        mfaRequired: () => {},  // no-op
+        customChallenge: () => {} // no-op
+      });
+    });
+  }
+```

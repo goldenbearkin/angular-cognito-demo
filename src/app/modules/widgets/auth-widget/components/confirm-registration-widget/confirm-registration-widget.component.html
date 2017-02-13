@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutAlign="start end" [style.height]="'80px'">
+  <h5>Please enter the confirmation code to finish the sign-up process.</h5>
+</div>
+
+<msp-code-input [tiggerValidationObservable]="submit$" (validator)="codeValidator$.next($event)"></msp-code-input>
+
+<div fxLayout="row" fxLayoutAlign="start center" [style.height]="'80px'">
+  <div [style.width]="'100%'" *ngIf="confirmRgistrationState$ | async; let state">
+    <div class="error-box" [@swipeInOut] *ngIf="state.current === 'onFailure'">
+      {{ state.error.message }}
+    </div>
+  </div>
+</div>
+
+<button md-raised-button color="primary" [style.width]="'100%'" (click)="submit$.next(true)">CONFIRM</button>
+
+<span fxLayout="row" fxLayoutAlign="center center" [style.height]="'80px'" [style.fontSize]="'12px'">
+  Still haven't received anything? Let's&nbsp;
+  <span class="resend" (click)="resend$.next(true)">RESEND</span>&nbsp;the SMS.
+</span>

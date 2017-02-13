@@ -1,0 +1,18 @@
+<form novalidate fxLayout="row" fxLayoutAlign="start center" [style.height]="'80px'" [formGroup]="form">
+
+  <md-icon [style.marginRight]="'20px'">phone</md-icon>
+
+  <md-select [style.marginRight]="'10px'" formControlName="countryNameCode">
+    <md-option *ngFor="let content of selectContent" [value]="content.value"> {{ content.viewValue }} </md-option>
+  </md-select>
+
+  <md-input-container [style.width]="'100%'" floatingPlaceholder="false">
+    <input md-input formControlName="localNumber" placeholder="{{ localNumberPlaceholder$ | async }}">
+    <md-hint [style.color]="'red'" [@opacity]="(isInputting$ | async) ? 'true' : 'false'" align="end">
+      <div *ngIf="validator$ | async; let validator">
+        <span *ngIf="!validator.isValid">{{ validator.errMsg }}</span>
+      </div>
+    </md-hint>
+  </md-input-container>
+
+</form>

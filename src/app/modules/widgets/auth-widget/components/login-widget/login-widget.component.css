@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.forgot {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.error-box {
+  border: 1px solid #bd081c;
+  background-color: #ffebe9;
+  padding: 10px;
+  overflow: hidden;
+}

@@ -1,0 +1,16 @@
+<msp-mobile-input [tiggerValidationObservable]="submit$" (validator)="mobileValidator$.next($event)"></msp-mobile-input>
+<msp-password-input [tiggerValidationObservable]="submit$" (validator)="passwordValidator$.next($event)"></msp-password-input>
+
+<div fxLayout="row" fxLayoutAlign="start center" [style.height]="'80px'">
+  <div [style.width]="'100%'" *ngIf="loginState$ | async; let state">
+    <div class="error-box" [@swipeInOut] *ngIf="state.current === 'onFailure'">
+      {{ state.error.message }}
+    </div>
+  </div>
+</div>
+
+<button md-raised-button color="primary" [style.width]="'100%'" (click)="submit$.next(true)">LOG IN</button>
+
+<span fxLayout="row" fxLayoutAlign="center center" class="forgot" [style.height]="'80px'" (click)="forgotPassword.emit()">
+  Don't remember your password?
+</span>

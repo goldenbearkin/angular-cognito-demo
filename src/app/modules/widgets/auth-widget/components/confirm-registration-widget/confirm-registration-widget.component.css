@@ -1,0 +1,16 @@
+:host {
+  font-family: Roboto, "Helvetica Neue", sans-serif
+}
+
+.error-box {
+  border: 1px solid #bd081c;
+  background-color: #ffebe9;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.resend {
+  font-weight: bold;
+  cursor: pointer;
+}
+

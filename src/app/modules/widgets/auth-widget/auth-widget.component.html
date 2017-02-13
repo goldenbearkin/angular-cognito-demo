@@ -1,0 +1,30 @@
+<md-toolbar color="primary">
+  <md-icon *ngIf="viewStack.length > 1" (click)="transitBackward()" [style.cursor]="'pointer'">
+    chevron_left
+  </md-icon>
+</md-toolbar>
+
+<template #landingRef>
+  <md-tab-group md-stretch-tabs (selectChange)="tabIndex$.next($event.index)"  [selectedIndex]="tabIndex$ | async">
+    <md-tab label="LOG IN">
+      <msp-login-widget (forgotPassword)="onForgotPassword()"></msp-login-widget>
+    </md-tab>
+    <md-tab label="SIGN UP">
+      <msp-signup-widget></msp-signup-widget>
+    </md-tab>
+  </md-tab-group>
+</template>
+
+<template #forgotPasswordRef>
+  <msp-forgot-password-widget></msp-forgot-password-widget>
+</template>
+
+<template #confirmNewPasswordRef>
+  <msp-confirm-new-password-widget></msp-confirm-new-password-widget>
+</template>
+
+<template #confirmRegistrationRef>
+  <msp-confirm-registration-widget></msp-confirm-registration-widget>
+</template>
+
+<template #targetRef></template>

@@ -1,3 +1,13 @@
-<h1>
-  {{title}}
-</h1>
+<md-toolbar color="primary">
+  <span>{{title}}</span>
+  <span class="spacer"></span>
+  <div *ngIf="currentState$ | async; let state">
+    <div *ngIf="state.current === 'onSuccess'; else goLogin">
+      {{ state.payload.username}}
+      <msp-auth-logout-button></msp-auth-logout-button>
+    </div>
+    <template #goLogin>
+      <msp-auth-dialog-button></msp-auth-dialog-button>
+    </template>
+  </div>
+</md-toolbar>
